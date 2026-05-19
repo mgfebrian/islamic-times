@@ -50,15 +50,13 @@ pub fn navbar() -> Html {
             </div>
             <div class="flex-none">
                 <ul class="menu menu-horizontal px-1">
-                    <BrowserRouter>
-                        for menu in menus {    
-                            <li>
-                                <Link<Route> to={menu.route.clone()}>
-                                    { &menu.name }
-                                </Link<Route>>
-                            </li>
-                        }
-                    </BrowserRouter>
+                    for menu in menus {    
+                        <li>
+                            <Link<Route> to={menu.route.clone()}>
+                                { &menu.name }
+                            </Link<Route>>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>

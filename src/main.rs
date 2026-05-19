@@ -53,8 +53,8 @@ fn switch(routes: Route) -> Html {
 fn App() -> Html {
     html! {
         <>
-            <Navbar />
             <BrowserRouter>
+                <Navbar />
                 <Switch<Route> render={switch} />
             </BrowserRouter>
 

@@ -1,7 +1,8 @@
 use yew::prelude::*;
 use yew_router::prelude::*;
 
-use crate::{components::navbar::Navbar, pages::home::Home};
+use crate::components::navbar::Navbar;
+use crate::pages::home::Home;
 
 mod api;
 mod components;

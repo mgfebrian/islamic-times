@@ -1,5 +1,5 @@
 use gloo_net::http::Request;
-use crate::models::prayer::AladhanResponse;
+use crate::models::{prayer::AladhanResponse, qibla::QiblaResponse};
 
 pub async fn fetch_prayer_times(
     lat: f64, 
@@ -19,5 +19,21 @@ pub async fn fetch_prayer_times(
     // Deserialisasi otomatis JSON ke dalam Struct Rust kita
     let data: AladhanResponse = response.json().await?;
     
+    Ok(data)
+}
+
+pub async fn fetch_qibla_directions(
+    lat: f64,
+    lon: f64
+) -> Result<QiblaResponse, gloo_net::Error> {
+    let url = format!(
+        "https://api.aladhan.com/v1/qibla/{}/{}",
+        lat, lon
+    );
+
+    let response = Request::get(&url).send().await?;
+
+    let data: QiblaResponse = response.json().await?;
+
     Ok(data)
 }

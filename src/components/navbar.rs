@@ -46,7 +46,11 @@ pub fn navbar() -> Html {
     html! {
         <div class="navbar bg-base-100 shadow-sm">
             <div class="flex-1">
-                <a class="btn btn-ghost text-xl">{ "Shalat Times" }</a>
+                <a class="btn btn-ghost text-xl">
+                    <Link<Route> to={menus[0].route.clone()}>
+                        { "Shalat Times" }
+                    </Link<Route>>
+                </a>
             </div>
             <div class="flex-none">
                 <ul class="menu menu-horizontal px-1">
